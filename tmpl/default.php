@@ -44,7 +44,7 @@
 						.'&operator=and&key-list=0'
 						.'&option=com_community&view=search&task=advancesearch' ; 
 			?>
-			<a style='float:right;' href='<?php echo CRoute::_($link); ?>'><?php echo JText::_("Show All"); ?></a>
+			<a style='float:right;' href='<?php echo CRoute::_($link); ?>'><?php echo JText::_("MOD_XIPTMEMBERS_SHOW_ALL"); ?></a>
 			
 		</div>
 	<?php
