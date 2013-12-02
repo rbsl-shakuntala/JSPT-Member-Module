@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
-<extension version="2.5" type="module" client="site">
-	<name>Xipt Members</name>
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>Xipt Members</name> 
 	<author>Team JoomlaXi</author>
 	<creationDate>March 2009</creationDate>
 	<copyright>(C) by Team JomSocial, code modified by Team JoomlaXi</copyright>
