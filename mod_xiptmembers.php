@@ -16,8 +16,8 @@
 	require_once (dirname(__FILE__).DS.'helper.php');
 	
 	CFactory::load( 'libraries','error');
-	JPlugin::loadLanguage("mod_xiptmembers", JPATH_ROOT);
-	JPlugin::loadLanguage( 'com_community', JPATH_ROOT );
+	JFactory::getLanguage()->load('mod_xiptmembers');
+	JFactory::getLanguage()->load('com_community');
 	
 	$document				= JFactory::getDocument();
 	$usermodel 				= CFactory::getModel('user');
