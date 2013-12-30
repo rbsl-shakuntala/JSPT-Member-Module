@@ -26,8 +26,9 @@
 	$tooltips 				= $params->get('tooltips', 1);
 	$mootools 				= $params->get('loadmootools', 1);
 	$profile_type			= $params->get('profile_type');
+	$showall				= $params->get('showall', 0);
 	
-	if($profile_type)
+	if(!empty($profile_type))
 	{
 		$row = XiptLatestMember($display_limit, $updated_avatar_only, $profile_type);
 	

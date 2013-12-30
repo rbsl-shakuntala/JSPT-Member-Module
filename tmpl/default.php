@@ -35,8 +35,10 @@
 			?>
 			</ul>
 		</div>
+		
+		<?php if($showall) { ?>
 		<div>
-			<?php  
+			<?php 
 				$link = 'index.php?field0=XIPT_PROFILETYPE'
 						.'&condition0=equal'
 						.'&value0='.$profile_type
@@ -47,7 +49,9 @@
 			<a style='float:right;' href='<?php echo CRoute::_($link); ?>'><?php echo JText::_("MOD_XIPTMEMBERS_SHOW_ALL"); ?></a>
 			
 		</div>
+		
 	<?php
+		}
 	}
 	else
 	{

@@ -32,14 +32,12 @@
 				<option value="1">Use global</option>
 				<option value="0">No caching</option>
 			</field>
-	<!--
-			<param name="updated_avatar_only" type="list" default="0" label="Updated avatar only" description="Show users with updated avatar only.">
+			
+			<field name="profile_type" type="profiletypes" default="0" label="Select Profile Type" description="Show users with profile type." multiple="multiple"/>
+			<field name="showall" type="list" default="0" label="Display Show All link" description="Select if you want that in the bottom of members, user can see a link of show all. Note:- Set it to No if you are selecting multiple profiles in Profiletypes because this link will create very complex query and it might slow down search.">
 				<option value="0">No</option>
 				<option value="1">Yes</option>
-			</param>
-	-->
-			<field name="profile_type" type="profiletypes" default="0" label="Select Profile Type" description="Show users with profile type." />
-
+			</field>
 			<field name="tooltips" type="list" default="1" label="Use Tooltips" description="Select to choose whether to show the tooltips or not.">
 				<option value="0">No</option>
 				<option value="1">Yes</option>

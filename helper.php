@@ -13,7 +13,10 @@ if( !function_exists('XiptLatestMember') )
 {
 	function XiptLatestMember($limit = 15, $updated_avatar_only, $profile_type)
 	{
-		$db	 = JFactory::getDBO();
+		$db	 			= JFactory::getDBO();
+		if(is_array($profile_type)) {
+			$profile_type 	= implode(',', $profile_type);
+		}
 		
 		if($updated_avatar_only)
 		{
@@ -26,7 +29,7 @@ if( !function_exists('XiptLatestMember') )
 		
 		$query	= 'SELECT * FROM ' . $db->quoteName( '#__users' ) . ' AS a ' 
 				. 'LEFT JOIN ' . $db->quoteName( '#__xipt_users' ) . ' AS b ON a.' . $db->quoteName( 'id' ) . ' = b.' . $db->quoteName( 'userid' ) . ' '
-				. 'WHERE b.' . $db->quoteName( 'profiletype' ) . ' = ' . $profile_type . ' '
+				. 'WHERE b.' . $db->quoteName( 'profiletype' ) . ' IN(' . $profile_type . ')'
 				. 'AND a.' . $db->quoteName( 'block' ) . ' = ' . $db->Quote(0)
 				. $condition
 				. 'ORDER BY a.' . $db->quoteName( 'registerDate' ) . ' '
