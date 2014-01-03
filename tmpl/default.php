@@ -39,12 +39,22 @@
 		<?php if($showall) { ?>
 		<div>
 			<?php 
-				$link = 'index.php?field0=XIPT_PROFILETYPE'
-						.'&condition0=equal'
-						.'&value0='.$profile_type
-						.'&fieldType0=profiletypes'
-						.'&operator=and&key-list=0'
+			
+			$link = 'index.php?'
+						.'operator=or'
 						.'&option=com_community&view=search&task=advancesearch' ; 
+			$i = 0;
+			
+			foreach ($profile_type as $profileTypeId) {
+				$link .= "&field$i=XIPT_PROFILETYPE"
+						."&condition$i=equal"
+						."&value$i=$profileTypeId"
+						."&fieldType$i=profiletypes"; 
+				$keyList[] = $i++;	
+			}
+
+			$link .= "&key-list=".urlencode(implode(',', $keyList));
+			
 			?>
 			<a style='float:right;' href='<?php echo CRoute::_($link); ?>'><?php echo JText::_("MOD_XIPTMEMBERS_SHOW_ALL"); ?></a>
 			
