@@ -35,19 +35,36 @@
 			?>
 			</ul>
 		</div>
+		
+		<?php if($showall) { ?>
 		<div>
-			<?php  
-				$link = 'index.php?field0=XIPT_PROFILETYPE'
-						.'&condition0=equal'
-						.'&value0='.$profile_type
-						.'&fieldType0=profiletypes'
-						.'&operator=and&key-list=0'
-						.'&option=com_community&view=search&task=advancesearch' ; 
+			<?php 
+				$link = 'index.php?';
+				
+				for($i = 0; $i < count($profile_type); $i++)
+				{
+					$link .= 'field'.$i.'=XIPT_PROFILETYPE'
+							.'&condition'.$i.'=equal'
+							.'&value'.$i.'='.$profile_type[$i]
+							.'&fieldType'.$i.'=profiletypes&';
+				}
+				
+				$link .= 'operator=or'
+						.'&option=com_community&view=search&task=advancesearch'
+						.'&key-list=0';
+						
+				for($i = 1; $i < count($profile_type); $i++)
+				{
+					$link .= '%2C'.$i;
+				}
 			?>
+
 			<a style='float:right;' href='<?php echo CRoute::_($link); ?>'><?php echo JText::_("MOD_XIPTMEMBERS_SHOW_ALL"); ?></a>
 			
 		</div>
+		
 	<?php
+		}
 	}
 	else
 	{
